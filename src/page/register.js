@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import * as action from './../redux/action/index';
-import{Link} from 'react-router-dom';
+import{Link, withRouter} from 'react-router-dom';
+import history from './../component/history';
 
 class Register extends Component {
     constructor(props){
@@ -28,7 +29,9 @@ class Register extends Component {
       const{username,email,password} = this.state;
       console.log(this.state.username, this.state.email);
       if(this.state.password === this.state.repeat){
-          this.props.handleRegister(username,email,password);
+        this.props.handleRegister(username,email,password);
+        history.push('/login');
+        
       }else{
           console.log('password beda');
           this.setState({message:true})
@@ -127,4 +130,4 @@ function mapDispatchToProps(dispatch){
     }
 }
 
-export default connect(null,mapDispatchToProps)(Register);
+export default connect(null,mapDispatchToProps)(withRouter(Register));

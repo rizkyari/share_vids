@@ -1,10 +1,11 @@
-export const postRegister = (user,email,password) => ({
-    type: 'REGISTER',
-    user,
-    email,
-    password
+export const postRegister = (user, email, password) => ({
+  type: "REGISTER",
+  user,
+  email,
+  password,
 });
 
-export const postLogin = () => ({
-    type : 'LOGIN',
+export const postLogin = (input) => ({
+  type: "LOGIN",
+  input,
 });

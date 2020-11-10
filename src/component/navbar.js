@@ -1,49 +1,83 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
-export default class Navbar extends Component {
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as action from './../redux/action/index';
+
+class Navbar extends Component {
   render() {
+    const { status, user, handleLogout } = this.props;
     return (
       <nav
-        class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"
+        className="navbar navbar-expand-sm bg-dark navbar-dark fixed-top"
         id="main-nav"
       >
-        <div class="container">
-          <a href="index.html" class="navbar-brand">
+        <div className="container">
+          <a href="index.html" className="navbar-brand">
             You'll Never Walk Alone
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             data-toggle="collapse"
             data-target="#navbarCollapse"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a href="#home" class="nav-link">
+          <div className="collapse navbar-collapse" id="navbarCollapse">
+            {/* <li className="nav-item">
+                <Link to="/" className="nav-link">
                   Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <Link to="/register" class="nav-link">
-                  Register
                 </Link>
-              </li>
-              <li class="nav-item">
-                <a href="#create-head-section" class="nav-link">
-                  Create
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#share-head-section" class="nav-link">
-                  Share
-                </a>
-              </li>
-            </ul>
+              </li> */}
+            {status.input ? (
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <p style={{ marginTop: "9px", color: "#fff", marginRight:'30px' }}>
+                    Hi,{user.user}
+                  </p>
+                </li>
+                <li className="nav-item">
+                  <Link to="/" className="nav-link">
+                    Share Movie
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <button type='button'  className='btn btn-primary' onClick={()=> handleLogout(false)}>
+                    Log out
+                  </button>
+                </li>
+              </ul>
+            ) : (
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <Link to="/register" className="nav-link">
+                    Register
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/login" className="nav-link">
+                    Login
+                  </Link>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </nav>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    status: state.login,
+    user: state.register,
+  };
+};
+
+function mapDispatchToProps(dispatch){
+    return{
+        handleLogout : (input) => dispatch(action.postLogin(input)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
