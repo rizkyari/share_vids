@@ -6,9 +6,7 @@ export const initialState = {
     password: false,
   },
   login: {
-    user: false,
-    email: false,
-    password: false,
+    input:false,
   },
 };
 
@@ -19,6 +17,9 @@ const userReducer = (state = initialState, action) =>
         draft.register.user = action.user;
         draft.register.email = action.email;
         draft.register.password = action.password;
+        break;
+      case "LOGIN":
+        draft.login.input = action.input;
         break;
       default:
         break;
