@@ -36,7 +36,7 @@ class Navbar extends Component {
                   </p>
                 </li>
                 <li className="nav-item">
-                  <Link to="/" className="nav-link">
+                  <Link to="/share" className="nav-link">
                     Share Movie
                   </Link>
                 </li>

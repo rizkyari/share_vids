@@ -16,13 +16,7 @@ class Register extends Component {
         }
     }
 
-  filters() {
-    let url = "https://www.youtube.com/watch?v=e5EIB=DNdfi0";
-    let res = url.substring(url.indexOf("="));
-    let resp = res.replace(/&.*=/, "");
-    let filt = resp.replace(/=/, "");
-    console.log(filt);
-  }
+  
 
   handleSubmit(e){
       e.preventDefault();
