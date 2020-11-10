@@ -11,6 +11,7 @@ import App from "./App";
 import Home from "./page/home";
 import Register from "./page/register";
 import Login from "./page/login";
+import Share from "./page/share";
 import history from "./component/history";
 import "font-awesome/css/font-awesome.min.css";
 
@@ -27,6 +28,7 @@ render(
         <Route exact path="/" component={Home} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/share" component={Share}/>
       </Switch>
     </Router>
   </Provider>,

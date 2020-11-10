@@ -6,8 +6,12 @@ export const initialState = {
     password: false,
   },
   login: {
-    input:false,
+    input: false,
   },
+  video: [],
+  isLoading: false,
+  isSuccess: false,
+  isError: false,
 };
 
 const userReducer = (state = initialState, action) =>
@@ -20,6 +24,19 @@ const userReducer = (state = initialState, action) =>
         break;
       case "LOGIN":
         draft.login.input = action.input;
+        break;
+      case "ADD_VIDEO":
+        draft.isLoading = true;
+        draft.isSuccess = false;
+        break;
+      case "ADD_VIDEO_SUCCESS":
+        draft.isLoading = false;
+        draft.isSuccess = true;
+        draft.video.push(action.data.items[0]);
+        break;
+      case "ADD_VIDEO_ERROR":
+        draft.isLoading = false;
+        draft.isError = true;
         break;
       default:
         break;
