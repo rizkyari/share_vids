@@ -4,8 +4,8 @@ import request from "./../../component/request";
 
 function* postVideo(action) {
   const id = action.video;
-  const key = "AIzaSyBu7BZhgwq7ofXszesfU8Gi42oN0Cg-DBQ";
-  const url = `https://youtube.googleapis.com/youtube/v3/search?q=${id}&key=${key}`;
+  const key = "AIzaSyBB-7b31F0Z_QBkTkCGSO2O9cRvSluJ9Cs";
+  const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${id}&key=${key}`;
   const config = {
     method: "get",
     headers: {

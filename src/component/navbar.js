@@ -12,9 +12,9 @@ class Navbar extends Component {
         id="main-nav"
       >
         <div className="container">
-          <a href="index.html" className="navbar-brand">
-            You'll Never Walk Alone
-          </a>
+          <Link to='/' className="navbar-brand">
+            My Movie
+          </Link>
           <button
             className="navbar-toggler"
             data-toggle="collapse"

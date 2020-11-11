@@ -23,4 +23,9 @@ export const postVideoSuccess= (data) =>({
 export const postVideoError = (error) => ({
   type: "ADD_VIDEO_ERROR",
   error,
+});
+
+export const deleteVideo = (index) => ({
+  type: "DELETE",
+  index,
 })

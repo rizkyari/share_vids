@@ -30,8 +30,8 @@ class Login extends Component {
     return (
       <div className="card bg-light">
         <article className="card-body mx-auto">
-          <h4 className="card-title mt-3 text-center">Create Account</h4>
-          <p className="text-center">Get started with your free account</p>
+          <h4 className="card-title mt-3 text-center">LOGIN</h4>
+          <p className="text-center">Login now and share your favorite video</p>
           <form onSubmit={(e) => this.handleSubmit(e)}>
             <div className="form-group input-group">
               <div className="input-group-prepend">
@@ -68,7 +68,7 @@ class Login extends Component {
             <div className="form-group">
               <button type="submit" className="btn btn-primary btn-block">
                 {" "}
-                Create Account{" "}
+                Login{" "}
               </button>
             </div>
             <p className="text-center">
