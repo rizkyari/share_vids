@@ -9,6 +9,7 @@ export const initialState = {
     input: false,
   },
   video: [],
+  thumbnail:[],
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -33,11 +34,16 @@ const userReducer = (state = initialState, action) =>
         draft.isLoading = false;
         draft.isSuccess = true;
         draft.video.push(action.data.items[0]);
+        draft.thumbnail.push(action.data.items[0].snippet.thumbnails)
         break;
       case "ADD_VIDEO_ERROR":
         draft.isLoading = false;
         draft.isError = true;
         break;
+      case "DELETE":
+        draft.video.splice(action.index,1);
+        draft.thumbnail.splice(action.index,1);
+        break;  
       default:
         break;
     }
